@@ -1,14 +1,16 @@
-package com.example.geektrust.services;
+package com.example.courseScheduler.services;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.geektrust.constants.IntegerConstants;
-import com.example.geektrust.constants.StringConstants;
-import com.example.geektrust.models.CourseRegistration;
-import com.example.geektrust.models.Course;
+import com.example.courseScheduler.constants.IntegerConstants;
+import com.example.courseScheduler.constants.StringConstants;
+import com.example.courseScheduler.interfaces.ICourseRegistrationService;
+import com.example.courseScheduler.models.CourseRegistration;
+import com.example.courseScheduler.models.Course;
 
-public class CourseRegistrationService {
+public class CourseRegistrationService implements ICourseRegistrationService {
 
     private static final String REGISTRATION_ID_PREFIX = "REG-COURSE-";
 
@@ -81,6 +83,6 @@ public class CourseRegistrationService {
     }
 
     public Map<String, CourseRegistration> getCourseRegistrations() {
-        return this.courseRegistrations;
+        return Collections.unmodifiableMap(this.courseRegistrations);
     }
 }

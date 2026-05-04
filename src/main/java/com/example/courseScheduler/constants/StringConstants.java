@@ -1,4 +1,4 @@
-package com.example.geektrust.constants;
+package com.example.courseScheduler.constants;
 
 public enum StringConstants {
     INPUT_DATA_ERROR("INPUT_DATA_ERROR"),

@@ -1,18 +1,15 @@
-package com.example.geektrust;
+package com.example.courseScheduler;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 
-import com.example.geektrust.processors.CommandProcessor;
-import com.example.geektrust.services.CourseAllotmentService;
-import com.example.geektrust.services.CourseOfferingService;
-import com.example.geektrust.services.CourseRegistrationService;
+import com.example.courseScheduler.processors.CommandProcessor;
+import com.example.courseScheduler.services.CourseAllotmentService;
+import com.example.courseScheduler.services.CourseOfferingService;
+import com.example.courseScheduler.services.CourseRegistrationService;
 
 public class CommandProcessorTest {
 

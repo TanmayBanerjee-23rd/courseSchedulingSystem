@@ -1,12 +1,13 @@
-package com.example.geektrust.services;
+package com.example.courseScheduler.services;
 
 import java.util.Map;
 
-import com.example.geektrust.constants.StringConstants;
-import com.example.geektrust.models.Course;
-import com.example.geektrust.models.CourseRegistration;
+import com.example.courseScheduler.constants.StringConstants;
+import com.example.courseScheduler.interfaces.ICourseAllotmentService;
+import com.example.courseScheduler.models.Course;
+import com.example.courseScheduler.models.CourseRegistration;
 
-public class CourseAllotmentService {
+public class CourseAllotmentService implements ICourseAllotmentService {
     private final Map<String, Course> courseOfferings;
     private final Map<String, CourseRegistration> courseRegistrations;
 

@@ -1,12 +1,13 @@
-package com.example.geektrust.services;
+package com.example.courseScheduler.services;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.example.geektrust.constants.StringConstants;
-import com.example.geektrust.models.Course;
+import com.example.courseScheduler.constants.StringConstants;
+import com.example.courseScheduler.interfaces.ICourseOfferingService;
+import com.example.courseScheduler.models.Course;
 
-public class CourseOfferingService {
+public class CourseOfferingService implements ICourseOfferingService {
     
     private static final String COURSE_ID_PREFIX = "OFFERING-";
     private Map<String, Course> courseOfferings;
@@ -23,27 +24,32 @@ public class CourseOfferingService {
         return this.courseOfferings.containsKey(courseId);
     }
 
-    private boolean isValidCourseOfferingData(String courseName, String instructor, String courseId, String date, int minEmployeesAllowedToRegister, int maxEmployeesAllowedToRegister) {
+    private boolean isValidCourseOfferingData(String courseName, String instructor, String date, int minEmployeesAllowedToRegister, int maxEmployeesAllowedToRegister) {
         boolean isCourseValid = true;
 
         if (courseName == null || courseName.isEmpty()) {
             isCourseValid = false;
+            return isCourseValid;
         }
 
         if (instructor == null || instructor.isEmpty()) {
             isCourseValid = false;
+            return isCourseValid;
         }
 
-        if (isCourseAlreadyOffered(courseId)) {
+        if (isCourseAlreadyOffered(generateCourseId(courseName, instructor))) {
             isCourseValid = false;
+            return isCourseValid;
         }
 
-        if (Integer.parseInt(date) <= 0) {
+        if (date == null || date.isEmpty() || Integer.parseInt(date) <= 0) {
             isCourseValid = false;
+            return isCourseValid;
         }
 
         if (minEmployeesAllowedToRegister < 0 || maxEmployeesAllowedToRegister < 0 || minEmployeesAllowedToRegister > maxEmployeesAllowedToRegister) {
             isCourseValid = false;
+            return isCourseValid;
         }
 
         return isCourseValid;
@@ -51,12 +57,12 @@ public class CourseOfferingService {
 
     public void addCourseOffering(String courseName, String instructor, String date, int minEmployeesAllowedToRegister, int maxEmployeesAllowedToRegister) {
         
-        String courseId = generateCourseId(courseName, instructor);
-
-        if (!isValidCourseOfferingData(courseName, instructor, courseId, date, minEmployeesAllowedToRegister, maxEmployeesAllowedToRegister)) {
+        if (!isValidCourseOfferingData(courseName, instructor, date, minEmployeesAllowedToRegister, maxEmployeesAllowedToRegister)) {
             System.out.println(StringConstants.INPUT_DATA_ERROR.getValue());
             return;
         }
+
+        String courseId = generateCourseId(courseName, instructor);
 
         Course newCourse = new Course(courseId, courseName, instructor, date, minEmployeesAllowedToRegister, maxEmployeesAllowedToRegister);
         this.courseOfferings.put(courseId, newCourse);

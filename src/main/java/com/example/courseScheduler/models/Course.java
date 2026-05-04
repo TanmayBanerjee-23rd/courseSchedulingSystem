@@ -1,6 +1,6 @@
-package com.example.geektrust.models;
+package com.example.courseScheduler.models;
 
-import com.example.geektrust.constants.StringConstants;
+import com.example.courseScheduler.constants.StringConstants;
 
 public class Course {
 
@@ -21,7 +21,7 @@ public class Course {
         this.minimumEmployeesAllowedToRegister = minimumEmployeesAllowedToRegister;
         this.maximumEmployeesAllowedToRegister = maximumEmployeesAllowedToRegister;
         this.numberOfEmployeesRegistered = 0;
-        this.courseAllotmentStatus = StringConstants.COURSE_ALLOTMENT_NOT_INITIATED.name();
+        this.courseAllotmentStatus = StringConstants.COURSE_ALLOTMENT_NOT_INITIATED.getValue();
     }
 
     public void incrementNumberOfEmployeesRegistered() {

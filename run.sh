@@ -1,4 +1,4 @@
 #!/bin/bash
 
 gradle clean build -x test --no-daemon
-java -jar build/libs/geektrust.jar sample_input/input1.txt
+java -jar build/libs/courseScheduler.jar sample_input/input4.txt

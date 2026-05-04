@@ -1,4 +1,4 @@
-package com.example.geektrust.models;
+package com.example.courseScheduler.models;
 
 public class CourseRegistration {
 

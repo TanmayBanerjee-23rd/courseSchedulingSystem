@@ -1,9 +1,9 @@
-package com.example.geektrust;
+package com.example.courseScheduler;
 
 import java.io.FileInputStream;
 import java.util.Scanner;
 
-import com.example.geektrust.processors.CommandProcessor;
+import com.example.courseScheduler.processors.CommandProcessor;
 
 public class CourseSchedulingSystem {
     public static void main(String[] args)  {
