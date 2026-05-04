@@ -17,6 +17,12 @@ public class CommandProcessor {
         this.courseAllotmentService = new CourseAllotmentService(this.courseOfferingService, this.courseRegistrationService);
     }
 
+    public CommandProcessor(CourseOfferingService courseOfferingService, CourseRegistrationService courseRegistrationService, CourseAllotmentService courseAllotmentService) {
+        this.courseOfferingService = courseOfferingService;
+        this.courseRegistrationService = courseRegistrationService;
+        this.courseAllotmentService = courseAllotmentService;
+    }
+
     public void processCommand(String command) {
         String[] commandParts = command.split(" ");
 

@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import com.example.geektrust.processors.CommandProcessor;
 
-public class Main {
+public class CourseSchedulingSystem {
     public static void main(String[] args)  {
         
         try {
