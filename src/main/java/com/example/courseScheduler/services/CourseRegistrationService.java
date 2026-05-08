@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.example.courseScheduler.constants.IntegerConstants;
 import com.example.courseScheduler.constants.StringConstants;
+import com.example.courseScheduler.interfaces.ICourseOfferingService;
 import com.example.courseScheduler.interfaces.ICourseRegistrationService;
 import com.example.courseScheduler.models.CourseRegistration;
 import com.example.courseScheduler.models.Course;
@@ -15,9 +16,9 @@ public class CourseRegistrationService implements ICourseRegistrationService {
     private static final String REGISTRATION_ID_PREFIX = "REG-COURSE-";
 
     private final Map<String, CourseRegistration> courseRegistrations;
-    private final CourseOfferingService courseOfferingService;
+    private final ICourseOfferingService courseOfferingService;
 
-    public CourseRegistrationService(CourseOfferingService courseOfferingService) {
+    public CourseRegistrationService(ICourseOfferingService courseOfferingService) {
         this.courseOfferingService = courseOfferingService;
         this.courseRegistrations = new HashMap<>();
     }

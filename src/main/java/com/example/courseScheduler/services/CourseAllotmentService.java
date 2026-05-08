@@ -4,6 +4,8 @@ import java.util.Map;
 
 import com.example.courseScheduler.constants.StringConstants;
 import com.example.courseScheduler.interfaces.ICourseAllotmentService;
+import com.example.courseScheduler.interfaces.ICourseOfferingService;
+import com.example.courseScheduler.interfaces.ICourseRegistrationService;
 import com.example.courseScheduler.models.Course;
 import com.example.courseScheduler.models.CourseRegistration;
 
@@ -11,7 +13,10 @@ public class CourseAllotmentService implements ICourseAllotmentService {
     private final Map<String, Course> courseOfferings;
     private final Map<String, CourseRegistration> courseRegistrations;
 
-    public CourseAllotmentService(CourseOfferingService courseOfferingService, CourseRegistrationService courseRegistrationService) {
+    public CourseAllotmentService(
+        ICourseOfferingService courseOfferingService, 
+        ICourseRegistrationService courseRegistrationService
+    ) {
         this.courseOfferings = courseOfferingService.getCourseOfferings();
         this.courseRegistrations = courseRegistrationService.getCourseRegistrations();
     }
